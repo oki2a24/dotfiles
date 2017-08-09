@@ -1,0 +1,25 @@
+" フォント設定:
+" Windows 用
+set guifont=MS_Gothic:h11:cSHIFTJIS
+
+" ウインドウに関する設定:
+" ウインドウの幅
+set columns=150
+" ウインドウの高さ
+set lines=45
+" ウインドウの高さ (GUI 使用時)
+set cmdheight=1
+
+" マウスに関する設定:
+" どのモードでもマウスを使えるようにする
+set mouse=a
+" マウスの移動でフォーカスを自動的に切り替える
+set mousefocus
+" 入力時にマウスポインタを隠さない
+set mousehide
+" ビジュアル選択 (D&D 他) を自動的にクリップボードへ (:help guioptions_a)
+set guioptions+=a
+
+" カラースキーム
+set background=dark
+colorscheme solarized
