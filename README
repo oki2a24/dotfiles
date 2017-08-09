@@ -1,8 +1,9 @@
-## Windows ‚Å‚ÌƒZƒbƒgƒAƒbƒvè‡
+## Windows ã§ã®ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—æ‰‹é †
+
 ```bash
 cd ~
 git clone https://github.com/oki2a24/dotfiles.git
 cd dotfiles/
 explorer .
-# mklink.bat ‚ğÀs
+# mklink.bat ã‚’å®Ÿè¡Œ
 ```
