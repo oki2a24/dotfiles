@@ -87,3 +87,6 @@ set ruler
 
 " 検索パターンにマッチするテキストを全て強調表示
 set hlsearch
+
+" 挿入モードでの <BS> キー動作制御
+set backspace=indent,eol,start
