@@ -68,10 +68,18 @@ set listchars=tab:>-,extends:<,trail:-,eol:<
 
 " 常にタブラインを表示
 set showtabline=2
+"タブ入力を複数の空白入力に置き換え
+set expandtab
 " タブ表示時の幅
-set tabstop=4
-" タブ挿入時の幅
-set shiftwidth=4
+set tabstop=2
+" (自動)インデントの各段階に使われる空白の数
+set shiftwidth=2
+"連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+set softtabstop=2
+"改行時に前の行のインデントを継続する
+set autoindent
+"改行時に入力された行の末尾に合わせて次の行のインデントを増減する
+set smartindent
 
 " 改行での自動コメントアウトをオフ
 autocmd FileType * setlocal formatoptions-=ro
