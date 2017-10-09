@@ -30,6 +30,8 @@ if dein#load_state(s:dein_dir)
   call dein#add('qpkorr/vim-renamer')
   call dein#add('scrooloose/nerdtree')
   call dein#add('altercation/vim-colors-solarized')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('tpope/vim-fugitive')
 
   " Required:
   call dein#end()
@@ -47,7 +49,17 @@ endif
 
 "End dein Scripts-------------------------
 
-
+"Start lightline Scripts------------------
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+"End lightline Scripts--------------------
 
 " カラースキーム -------------------------
 syntax enable
