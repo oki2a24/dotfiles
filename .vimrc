@@ -32,6 +32,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('altercation/vim-colors-solarized')
   call dein#add('itchyny/lightline.vim')
   call dein#add('tpope/vim-fugitive')
+  call dein#add('airblade/vim-gitgutter')
 
   " Required:
   call dein#end()
