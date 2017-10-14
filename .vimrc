@@ -78,7 +78,7 @@ colorscheme solarized
 " Vim内部で使われる文字エンコーディング
 set encoding=utf-8
 " カレントバッファのファイルの文字エンコーディング
-set fileencodings=sjis,utf-8
+set fileencodings=utf-8,sjis
 
 " 行番号を表示
 set number
