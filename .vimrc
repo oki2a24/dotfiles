@@ -60,7 +60,7 @@ let g:lightline = {
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
+      \   'gitbranch': 'gina#component#repo#branch'
       \ },
       \ }
 "End lightline Scripts--------------------
