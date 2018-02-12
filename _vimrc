@@ -84,3 +84,6 @@ set textwidth=0
 
 " undo ファイルを作成しない
 set noundofile
+
+" 無名レジスタに入るデータを、*レジスタにも入れる。
+set clipboard+=unnamed
