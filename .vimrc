@@ -31,9 +31,9 @@ if dein#load_state(s:dein_dir)
   call dein#add('scrooloose/nerdtree')
   call dein#add('altercation/vim-colors-solarized')
   call dein#add('itchyny/lightline.vim')
+  call dein#add('tpope/vim-fugitive')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('ctrlpvim/ctrlp.vim')
-  call dein#add('lambdalisue/gina.vim')
 
   " Required:
   call dein#end()
@@ -60,7 +60,7 @@ let g:lightline = {
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'gina#component#repo#branch'
+      \   'gitbranch': 'fugitive#head'
       \ },
       \ }
 "End lightline Scripts--------------------
