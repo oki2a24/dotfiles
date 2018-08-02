@@ -28,14 +28,14 @@ if dein#load_state(s:dein_dir)
   call dein#add('Shougo/dein.vim')
 
   " Add or remove your plugins here:
-  call dein#add('w0rp/ale')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('altercation/vim-colors-solarized')
+  call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('itchyny/lightline.vim')
   call dein#add('qpkorr/vim-renamer')
   call dein#add('scrooloose/nerdtree')
-  call dein#add('altercation/vim-colors-solarized')
-  call dein#add('itchyny/lightline.vim')
   call dein#add('tpope/vim-fugitive')
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('w0rp/ale')
 
   " Required:
   call dein#end()
