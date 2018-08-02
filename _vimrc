@@ -32,6 +32,10 @@ if dein#load_state(s:dein_dir)
   call dein#add('qpkorr/vim-renamer')
   call dein#add('scrooloose/nerdtree')
   call dein#add('altercation/vim-colors-solarized')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('ctrlpvim/ctrlp.vim')
 
   " Required:
   call dein#end()
@@ -48,6 +52,20 @@ if dein#check_install()
 endif
 
 "End dein Scripts-------------------------
+
+"Start lightline Scripts------------------
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+"End lightline Scripts--------------------
 
 
 
