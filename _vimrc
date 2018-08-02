@@ -28,10 +28,14 @@ if dein#load_state(s:dein_dir)
   call dein#add('Shougo/dein.vim')
 
   " Add or remove your plugins here:
-  call dein#add('w0rp/ale')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('altercation/vim-colors-solarized')
+  call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('itchyny/lightline.vim')
   call dein#add('qpkorr/vim-renamer')
   call dein#add('scrooloose/nerdtree')
-  call dein#add('altercation/vim-colors-solarized')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('w0rp/ale')
 
   " Required:
   call dein#end()
@@ -48,6 +52,20 @@ if dein#check_install()
 endif
 
 "End dein Scripts-------------------------
+
+"Start lightline Scripts------------------
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+"End lightline Scripts--------------------
 
 
 
@@ -84,3 +102,6 @@ set textwidth=0
 
 " undo ファイルを作成しない
 set noundofile
+
+" 無名レジスタに入るデータを、*レジスタにも入れる。
+set clipboard+=unnamed
