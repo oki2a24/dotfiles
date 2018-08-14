@@ -8,7 +8,6 @@ for f in .??*
 do
   # Exclude files
   [[ ${f} = ".git" ]] && continue
-  [[ ${f} = ".gitignore" ]] && continue
   [[ ${f} = "LICENSE" ]] && continue
   [[ ${f} = "README.md" ]] && continue
   [[ ${f} = "_gvimrc" ]] && continue
