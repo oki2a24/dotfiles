@@ -120,3 +120,6 @@ set hlsearch
 
 " 挿入モードでの <BS> キー動作制御
 set backspace=indent,eol,start
+
+" ウィンドウの最後の行ができる限りまで表示
+set display=lastline

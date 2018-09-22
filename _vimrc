@@ -105,3 +105,5 @@ set noundofile
 
 " 無名レジスタに入るデータを、*レジスタにも入れる。
 set clipboard+=unnamed
+" ウィンドウの最後の行ができる限りまで表示
+set display=lastline
