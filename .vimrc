@@ -35,6 +35,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('airblade/vim-gitgutter')
   call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('posva/vim-vue', { 'on_ft' : [ 'vue' ] })
+  call dein#add('luochen1990/rainbow')
 
   " Required:
   call dein#end()
@@ -65,6 +66,10 @@ let g:lightline = {
       \ },
       \ }
 "End lightline Scripts--------------------
+
+"Start rainbow Scripts------------------
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+"End rainbow Scripts--------------------
 
 " カラースキーム -------------------------
 syntax enable
