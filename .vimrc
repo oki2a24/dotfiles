@@ -34,6 +34,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('tpope/vim-fugitive')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('posva/vim-vue', { 'on_ft' : [ 'vue' ] })
 
   " Required:
   call dein#end()
