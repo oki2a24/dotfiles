@@ -3,13 +3,13 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«å…ˆ
-let s:dein_dir = expand('â€¾/.cache/dein')
-" dein.vim æœ¬ä½“ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«å…ˆ
+" ƒvƒ‰ƒOƒCƒ“‚ÌƒCƒ“ƒXƒg[ƒ‹æ
+let s:dein_dir = expand('~/.cache/dein')
+" dein.vim –{‘ÌƒCƒ“ƒXƒg[ƒ‹æ
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-" dein.vim ãŒãªã‘ã‚Œã° github ã‹ã‚‰å…¥æ‰‹
-if &runtimepath !â€¾# '/dein.vim'
+" dein.vim ‚ª‚È‚¯‚ê‚Î github ‚©‚ç“üŽè
+if &runtimepath !~# '/dein.vim'
   if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
   endif
@@ -18,7 +18,7 @@ if &runtimepath !â€¾# '/dein.vim'
   execute 'set runtimepath^=' . s:dein_repo_dir
 endif
 
-" ãƒ—ãƒ©ã‚°ã‚¤ãƒ³è¨­å®š
+" ƒvƒ‰ƒOƒCƒ“Ý’è
 " Required:
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
@@ -56,54 +56,54 @@ endif
 "Start lightline Scripts------------------
 set laststatus=2
 let g:lightline = {
-      Â¥ 'colorscheme': 'solarized',
-      Â¥ 'active': {
-      Â¥   'left': [ [ 'mode', 'paste' ],
-      Â¥             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      Â¥ },
-      Â¥ 'component_function': {
-      Â¥   'gitbranch': 'fugitive#head'
-      Â¥ },
-      Â¥ }
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
 "End lightline Scripts--------------------
 
 
 
-" ãã®ä»–ã€è¦‹æ „ãˆã«é–¢ã™ã‚‹è¨­å®š:
-" å¸¸ã«ã‚¿ãƒ–ãƒ©ã‚¤ãƒ³ã‚’è¡¨ç¤º
+" ‚»‚Ì‘¼AŒ©‰h‚¦‚ÉŠÖ‚·‚éÝ’è:
+" í‚Éƒ^ƒuƒ‰ƒCƒ“‚ð•\Ž¦
 set showtabline=2
-"ã‚¿ãƒ–å…¥åŠ›ã‚’è¤‡æ•°ã®ç©ºç™½å…¥åŠ›ã«ç½®ãæ›ãˆ
+"ƒ^ƒu“ü—Í‚ð•¡”‚Ì‹ó”’“ü—Í‚É’u‚«Š·‚¦
 set expandtab
-" ã‚¿ãƒ–è¡¨ç¤ºæ™‚ã®å¹…
+" ƒ^ƒu•\Ž¦Žž‚Ì•
 set tabstop=2
-" (è‡ªå‹•)ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã®å„æ®µéšŽã«ä½¿ã‚ã‚Œã‚‹ç©ºç™½ã®æ•°
+" (Ž©“®)ƒCƒ“ƒfƒ“ƒg‚ÌŠe’iŠK‚ÉŽg‚í‚ê‚é‹ó”’‚Ì”
 set shiftwidth=2
-"é€£ç¶šã—ãŸç©ºç™½ã«å¯¾ã—ã¦ã‚¿ãƒ–ã‚­ãƒ¼ã‚„ãƒãƒƒã‚¯ã‚¹ãƒšãƒ¼ã‚¹ã‚­ãƒ¼ã§ã‚«ãƒ¼ã‚½ãƒ«ãŒå‹•ãå¹…
+"˜A‘±‚µ‚½‹ó”’‚É‘Î‚µ‚Äƒ^ƒuƒL[‚âƒoƒbƒNƒXƒy[ƒXƒL[‚ÅƒJ[ƒ\ƒ‹‚ª“®‚­•
 set softtabstop=2
-"æ”¹è¡Œæ™‚ã«å‰ã®è¡Œã®ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’ç¶™ç¶šã™ã‚‹
+"‰üsŽž‚É‘O‚Ìs‚ÌƒCƒ“ƒfƒ“ƒg‚ðŒp‘±‚·‚é
 set autoindent
-"æ”¹è¡Œæ™‚ã«å…¥åŠ›ã•ã‚ŒãŸè¡Œã®æœ«å°¾ã«åˆã‚ã›ã¦æ¬¡ã®è¡Œã®ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’å¢—æ¸›ã™ã‚‹
+"‰üsŽž‚É“ü—Í‚³‚ê‚½s‚Ì––”ö‚É‡‚í‚¹‚ÄŽŸ‚Ìs‚ÌƒCƒ“ƒfƒ“ƒg‚ð‘Œ¸‚·‚é
 set smartindent
 
-" GUI å›ºæœ‰ã§ã¯ãªã„ç”»é¢è¡¨ç¤ºã®è¨­å®š:
-" è¡Œç•ªå·ã‚’è¡¨ç¤º
+" GUI ŒÅ—L‚Å‚Í‚È‚¢‰æ–Ê•\Ž¦‚ÌÝ’è:
+" s”Ô†‚ð•\Ž¦
 set number
-" ã‚¿ãƒ–ã‚„æ”¹è¡Œã‚’è¡¨ç¤º
+" ƒ^ƒu‚â‰üs‚ð•\Ž¦
 set list
-" ã©ã®æ–‡å­—ã§ã‚¿ãƒ–ã‚„æ”¹è¡Œã‚’è¡¨ç¤ºã™ã‚‹ã‹ã‚’è¨­å®š
+" ‚Ç‚Ì•¶Žš‚Åƒ^ƒu‚â‰üs‚ð•\Ž¦‚·‚é‚©‚ðÝ’è
 set listchars=tab:>-,extends:<,trail:-,eol:<
 
-" ãƒ•ã‚¡ã‚¤ãƒ«æ“ä½œã«é–¢ã™ã‚‹è¨­å®š:
-" ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã—ãªã„
+" ƒtƒ@ƒCƒ‹‘€ì‚ÉŠÖ‚·‚éÝ’è:
+" ƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹‚ðì¬‚µ‚È‚¢
 set nobackup
 
-" å…¥åŠ›ã•ã‚Œã¦ã„ã‚‹ãƒ†ã‚­ã‚¹ãƒˆã®æœ€å¤§å¹…ã€‚è¡ŒãŒãã‚Œã‚ˆã‚Šé•·ããªã‚‹ã¨ã€ã“ã®å¹…ã‚’è¶…ãˆãªã„ã‚ˆã†ã«ç©ºç™½ã®å¾Œã§æ”¹è¡Œã•ã‚Œã‚‹ã€‚å€¤ã‚’ 0 ã«è¨­å®šã™ã‚‹ã¨ç„¡åŠ¹
+" “ü—Í‚³‚ê‚Ä‚¢‚éƒeƒLƒXƒg‚ÌÅ‘å•Bs‚ª‚»‚ê‚æ‚è’·‚­‚È‚é‚ÆA‚±‚Ì•‚ð’´‚¦‚È‚¢‚æ‚¤‚É‹ó”’‚ÌŒã‚Å‰üs‚³‚ê‚éB’l‚ð 0 ‚ÉÝ’è‚·‚é‚Æ–³Œø
 set textwidth=0
 
-" undo ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã—ãªã„
+" undo ƒtƒ@ƒCƒ‹‚ðì¬‚µ‚È‚¢
 set noundofile
 
-" ç„¡åãƒ¬ã‚¸ã‚¹ã‚¿ã«å…¥ã‚‹ãƒ‡ãƒ¼ã‚¿ã‚’ã€*ãƒ¬ã‚¸ã‚¹ã‚¿ã«ã‚‚å…¥ã‚Œã‚‹ã€‚
+" –³–¼ƒŒƒWƒXƒ^‚É“ü‚éƒf[ƒ^‚ðA*ƒŒƒWƒXƒ^‚É‚à“ü‚ê‚éB
 set clipboard+=unnamed
-" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æœ€å¾Œã®è¡ŒãŒã§ãã‚‹é™ã‚Šã¾ã§è¡¨ç¤º
+" ƒEƒBƒ“ƒhƒE‚ÌÅŒã‚Ìs‚ª‚Å‚«‚éŒÀ‚è‚Ü‚Å•\Ž¦
 set display=lastline
