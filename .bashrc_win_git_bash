@@ -1,0 +1,12 @@
+# https://oki2a24.com/2018/01/14/set-git-bash-color-theme-to-solarized/
+if [[ -e $LOCALAPPDATA/mintty-colors-solarized/sol.dark ]]; then
+  source $LOCALAPPDATA/mintty-colors-solarized/sol.dark
+  eval `dircolors $LOCALAPPDATA/dircolors-solarized/dircolors.ansi-dark`
+fi
+
+# https://github.com/itchyny/lightline.vim
+export TERM=xterm-256color
+
+if which docker > /dev/null 2>&1; then
+  alias docker='winpty docker'
+fi
