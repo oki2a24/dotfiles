@@ -4,7 +4,7 @@ cd ~
 git clone https://github.com/oki2a24/dotfiles.git
 cd dotfiles/
 explorer .
-# mklink.bat を実行
+# mklink.bat を管理者として実行
 ```
 
 ## Mac でのセットアップ手順
