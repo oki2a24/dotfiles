@@ -7,6 +7,10 @@ fi
 # https://github.com/itchyny/lightline.vim
 export TERM=xterm-256color
 
-if which docker > /dev/null 2>&1; then
-  alias docker='winpty docker'
-fi
+for name in docker docker-compose
+do
+  case "$(type -p "$name".exe 2>/dev/null)" in
+  ''|/usr/bin/*) continue;;
+  esac
+  alias $name="winpty $name.exe"
+done
