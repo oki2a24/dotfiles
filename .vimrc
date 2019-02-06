@@ -29,7 +29,6 @@ if dein#load_state(s:dein_dir)
   call dein#add('w0rp/ale')
   call dein#add('qpkorr/vim-renamer')
   call dein#add('scrooloose/nerdtree')
-  call dein#add('altercation/vim-colors-solarized')
   call dein#add('itchyny/lightline.vim')
   call dein#add('tpope/vim-fugitive')
   call dein#add('airblade/vim-gitgutter')
@@ -60,7 +59,7 @@ if !has('gui_running')
   set t_Co=256
 endif
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'default',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -76,13 +75,7 @@ let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 "End rainbow Scripts--------------------
 
 " カラースキーム -------------------------
-syntax enable
-set background=dark
-" If you are using a terminal emulator that supports 256 colors and don't want to use the custom Solarized terminal colors, you will need to use the degraded 256 colorscheme.
-" https://github.com/altercation/vim-colors-solarized/blob/master/README.mkd#important-note-for-terminal-users
-let g:solarized_termcolors=256
-colorscheme solarized
-
+" なし
 
 
 " 設定 -------------------------
