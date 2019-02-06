@@ -126,3 +126,14 @@ set backspace=indent,eol,start
 
 " ウィンドウの最後の行ができる限りまで表示
 set display=lastline
+
+" Enable the use of the mouse in all modes
+" マウスを5モード全てで利用可能にする。
+" ノーマルモードおよび端末モード
+" ビジュアルモード
+" 挿入モード
+" コマンドラインモード
+" ヘルプファイルを閲覧しているときの上記のモード全て
+if has("mouse")
+  set mouse=a
+endif
