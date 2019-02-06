@@ -12,8 +12,9 @@ do
   [[ ${f} = "README.md" ]] && continue
   [[ ${f} = "_gvimrc" ]] && continue
   [[ ${f} = "_vimrc" ]] && continue
-  [[ ${f} = "install.sh" ]] && continue
-  [[ ${f} = "mklink.bat" ]] && continue
+  [[ ${f} = ".bashrc_win_git_bash" ]] && continue
+  [[ ${f} = ".minttyrc" ]] && continue
+  [[ ${f} = "link.ps1" ]] && continue
 
   ln -sfv ${DOTPATH}/${f} ${HOME}/${f}
 done
