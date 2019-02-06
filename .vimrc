@@ -136,3 +136,6 @@ set display=lastline
 if has("mouse")
   set mouse=a
 endif
+
+" カーソルがある画面上の行をCursorLineで強調
+set cursorline
