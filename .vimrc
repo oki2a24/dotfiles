@@ -53,7 +53,7 @@ endif
 "End dein Scripts-------------------------
 
 "Start lightline Scripts------------------
-"set laststatus=2
+set laststatus=2
 " https://github.com/itchyny/lightline.vim#introduction
 if !has('gui_running')
   set t_Co=256
