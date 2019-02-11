@@ -4,10 +4,10 @@ CursorColour=253,157,79
 
 BoldBlack=0,43,54
 Black=7,54,66
-BoldGreen=88,110,117
-BoldYellow=101,123,131
-BoldBlue=131,148,150
-BoldCyan=147,161,161
+BoldGreen=199,228,0
+BoldYellow=255,193,2
+BoldBlue=99,173,227
+BoldCyan=71,207,197
 White=238,232,213
 BoldWhite=253,246,227
 Yellow=181,137,0
