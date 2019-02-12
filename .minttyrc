@@ -2,4 +2,4 @@ Columns=80
 Rows=45
 RightClickAction=paste
 Term=xterm-256color
-ThemeFile=solarized_dark.minttyrc
+ThemeFile=base16-solarized-dark.minttyrc
