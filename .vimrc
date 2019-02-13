@@ -137,9 +137,6 @@ if has("mouse")
   set mouse=a
 endif
 
-" カーソルがある画面上の行をCursorLineで強調
-set cursorline
-
 " Vim 起動時に非点滅のブロックタイプのカーソル
 let &t_ti.="\e[2 q"
 " 挿入モード時に非点滅の縦棒タイプのカーソル
