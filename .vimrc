@@ -1,4 +1,4 @@
-"dein Scripts-----------------------------
+" dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
@@ -50,9 +50,9 @@ if dein#check_install()
   call dein#install()
 endif
 
-"End dein Scripts-------------------------
+" End dein Scripts-------------------------
 
-"Start lightline Scripts------------------
+" Start lightline Scripts------------------
 set laststatus=2
 " https://github.com/itchyny/lightline.vim#introduction
 if !has('gui_running')
@@ -68,11 +68,11 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
-"End lightline Scripts--------------------
+" End lightline Scripts--------------------
 
-"Start rainbow Scripts------------------
+" Start rainbow Scripts------------------
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
-"End rainbow Scripts--------------------
+" End rainbow Scripts--------------------
 
 " カラースキーム -------------------------
 " なし
@@ -93,17 +93,17 @@ set listchars=tab:>-,extends:<,trail:-,eol:<
 
 " 常にタブラインを表示
 set showtabline=2
-"タブ入力を複数の空白入力に置き換え
+" タブ入力を複数の空白入力に置き換え
 set expandtab
 " タブ表示時の幅
 set tabstop=2
 " (自動)インデントの各段階に使われる空白の数
 set shiftwidth=2
-"連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+" 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set softtabstop=2
-"改行時に前の行のインデントを継続する
+" 改行時に前の行のインデントを継続する
 set autoindent
-"改行時に入力された行の末尾に合わせて次の行のインデントを増減する
+" 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set smartindent
 
 " 改行での自動コメントアウトをオフ
