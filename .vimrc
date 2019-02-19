@@ -1,3 +1,6 @@
+set encoding=utf-8
+scriptencoding utf-8
+
 " dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
@@ -76,7 +79,6 @@ let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
 " 全角スペースを可視化
 " https://vim-jp.org/vim-users-jp/2009/07/12/Hack-40.html
-scriptencoding utf-8
 augroup highlightIdegraphicSpace
   autocmd!
   autocmd Colorscheme * highlight IdeographicSpace term=underline ctermbg=DarkGreen guibg=DarkGreen
@@ -88,8 +90,6 @@ augroup END
 colorscheme default
 
 " 設定 -------------------------
-" Vim内部で使われる文字エンコーディング
-set encoding=utf-8
 " カレントバッファのファイルの文字エンコーディング
 set fileencodings=utf-8,sjis
 
