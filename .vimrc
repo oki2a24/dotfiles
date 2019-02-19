@@ -74,9 +74,18 @@ let g:lightline = {
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 " End rainbow Scripts--------------------
 
+" 全角スペースを可視化
+" https://vim-jp.org/vim-users-jp/2009/07/12/Hack-40.html
+scriptencoding utf-8
+augroup highlightIdegraphicSpace
+  autocmd!
+  autocmd Colorscheme * highlight IdeographicSpace term=underline ctermbg=DarkGreen guibg=DarkGreen
+  autocmd VimEnter,WinEnter * match IdeographicSpace /　/
+augroup END
+
 " カラースキーム -------------------------
 " なし
-
+colorscheme default
 
 " 設定 -------------------------
 " Vim内部で使われる文字エンコーディング
