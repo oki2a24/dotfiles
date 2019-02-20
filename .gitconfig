@@ -5,3 +5,5 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
+[alias]
+  graph = log --decorate --graph --oneline --date=format:'%Y-%m-%d %H:%M' --format='%C(yellow)%h%Creset %C(magenta)[%cd]%Creset %C(auto)%d %s %Cblue<%an>%Creset'
