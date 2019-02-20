@@ -29,15 +29,8 @@ if dein#load_state(s:dein_dir)
   call dein#add('Shougo/dein.vim')
 
   " Add or remove your plugins here:
-  call dein#add('w0rp/ale')
-  call dein#add('qpkorr/vim-renamer')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('ctrlpvim/ctrlp.vim')
-  call dein#add('posva/vim-vue', { 'on_ft' : [ 'vue' ] })
-  call dein#add('luochen1990/rainbow')
+  let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dotfiles/dein.toml'
+  call dein#load_toml(s:toml_file)
 
   " Required:
   call dein#end()
