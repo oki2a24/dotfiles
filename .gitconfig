@@ -1,9 +1,9 @@
 # This is Git's per-user configuration file.
 [user]
-	name = oki2a24
-	email = oki2a24@gmail.com
+  name = oki2a24
+  email = oki2a24@gmail.com
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore
+  editor = vim
+  excludesfile = ~/.gitignore
 [alias]
   graph = log --decorate --graph --oneline --date=format:'%Y-%m-%d %H:%M' --format='%C(yellow)%h%Creset %C(magenta)[%cd]%Creset %C(auto)%d %s %Cblue<%an>%Creset'
