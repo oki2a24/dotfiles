@@ -29,15 +29,8 @@ if dein#load_state(s:dein_dir)
   call dein#add('Shougo/dein.vim')
 
   " Add or remove your plugins here:
-  call dein#add('w0rp/ale')
-  call dein#add('qpkorr/vim-renamer')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('ctrlpvim/ctrlp.vim')
-  call dein#add('posva/vim-vue', { 'on_ft' : [ 'vue' ] })
-  call dein#add('luochen1990/rainbow')
+  let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dotfiles/dein.toml'
+  call dein#load_toml(s:toml_file)
 
   " Required:
   call dein#end()
@@ -54,28 +47,6 @@ if dein#check_install()
 endif
 
 " End dein Scripts-------------------------
-
-" Start lightline Scripts------------------
-set laststatus=2
-" https://github.com/itchyny/lightline.vim#introduction
-if !has('gui_running')
-  set t_Co=256
-endif
-let g:lightline = {
-      \ 'colorscheme': 'default',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
-" End lightline Scripts--------------------
-
-" Start rainbow Scripts------------------
-let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
-" End rainbow Scripts--------------------
 
 " 全角スペースを可視化
 " https://vim-jp.org/vim-users-jp/2009/07/12/Hack-40.html
