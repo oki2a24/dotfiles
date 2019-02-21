@@ -2,6 +2,10 @@
 repo = 'w0rp/ale'
 
 [[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 
 [[plugins]]
