@@ -1,7 +1,4 @@
 [[plugins]]
-repo = 'w0rp/ale'
-
-[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
@@ -44,3 +41,6 @@ repo = 'scrooloose/nerdtree'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'w0rp/ale'
