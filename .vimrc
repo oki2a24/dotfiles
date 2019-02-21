@@ -48,28 +48,6 @@ endif
 
 " End dein Scripts-------------------------
 
-" Start lightline Scripts------------------
-set laststatus=2
-" https://github.com/itchyny/lightline.vim#introduction
-if !has('gui_running')
-  set t_Co=256
-endif
-let g:lightline = {
-      \ 'colorscheme': 'default',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
-" End lightline Scripts--------------------
-
-" Start rainbow Scripts------------------
-let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
-" End rainbow Scripts--------------------
-
 " 全角スペースを可視化
 " https://vim-jp.org/vim-users-jp/2009/07/12/Hack-40.html
 augroup highlightIdegraphicSpace
