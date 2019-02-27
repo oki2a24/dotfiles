@@ -1,17 +1,13 @@
 #!/bin/sh
 
-DOTPATH=${HOME}/dotfiles
+readonly DOTPATH=${HOME}/dotfiles
 
 echo "\$DOTPATH : ${DOTPATH}"
 echo "Creat dotfile symbolic links."
-for f in .??*
-do
-  # Exclude dot files
-  [[ ${f} = ".bashrc_win_git_bash" ]] && continue
-  [[ ${f} = ".git" ]] && continue
-  [[ ${f} = ".mintty" ]] && continue
-  [[ ${f} = ".minttyrc" ]] && continue
 
-  ln -sfv ${DOTPATH}/${f} ${HOME}/${f}
-done
+ln -sfv ${DOTPATH}/.bash_profile_mac ${HOME}/.bash_profile
+ln -sfv ${DOTPATH}/.gitconfig ${HOME}/.gitconfig
+ln -sfv ${DOTPATH}/.gitignore ${HOME}/.gitignore
+ln -sfv ${DOTPATH}/.vimrc ${HOME}/.vimrc
+
 echo $(tput setaf 2)Deploy dotfiles complete!. ✔︎$(tput sgr0)
