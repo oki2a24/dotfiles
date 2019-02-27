@@ -1,0 +1,14 @@
+alias ls='ls -F -G'
+alias ll='ls -l'
+
+# bash-completion を使用
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+# ターミナルでタブ補完を有効
+source /usr/local/etc/bash_completion.d/git-completion.bash
+# プロンプトに各種追加情報を表示可能にする
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+# ターミナルにブランチ名を表示
+GIT_PS1_SHOWDIRTYSTATE=true
+export PS1='\h\[\033[00m\]:\W\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]\$ '
+
