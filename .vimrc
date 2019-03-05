@@ -1,7 +1,7 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-source <sfile>:h/dotfiles/dein.rc.vim
+execute 'source' fnamemodify(expand('<sfile>'), ':h').'/dotfiles/dein.rc.vim'
 
 " 全角スペースを可視化
 " https://vim-jp.org/vim-users-jp/2009/07/12/Hack-40.html
