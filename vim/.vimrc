@@ -13,7 +13,7 @@ augroup END
 
 " カラースキーム -------------------------
 " なし
-colorscheme default
+colorscheme iceberg
 
 " 設定 -------------------------
 " カレントバッファのファイルの文字エンコーディング
