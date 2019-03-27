@@ -82,6 +82,9 @@ let &t_SR .= "\e[4 q"
 " vim 終了時にカーソルを mintty のデフォルトに設定
 let &t_te .= "\e[0 q"
 
+" Bash の構文ハイライトをカバー
+let g:is_bash = 1
+
 " Markdown 内に書かれているプログラミング言語をハイライト
 " http://mattn.kaoriya.net/software/vim/20140523124903.htm
 let g:markdown_fenced_languages = [
