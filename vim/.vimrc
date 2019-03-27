@@ -12,7 +12,6 @@ augroup highlightIdegraphicSpace
 augroup END
 
 " カラースキーム -------------------------
-" なし
 colorscheme iceberg
 
 " 設定 -------------------------
