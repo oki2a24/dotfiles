@@ -48,6 +48,13 @@ set visualbell
 
 " ヤンクでクリップボードにコピー
 set clipboard=unnamed,autoselect
+" Windows Subsystem for Linux で、ヤンクでクリップボードにコピー
+if system('uname -a | grep Microsoft') != ''
+  augroup myYank
+    autocmd!
+    autocmd TextYankPost * :call system('clip.exe', @")
+  augroup END
+endif
 
 " カーソルが何行目の何列目に置かれているかを表示
 set ruler
