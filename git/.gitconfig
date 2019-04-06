@@ -17,3 +17,5 @@
   conflictStyle = diff3
 [merge "tool"]
   vscode = cmd
+[url "git@github.com:"]
+  pushInsteadOf = https://github.com/
