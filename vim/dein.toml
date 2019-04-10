@@ -19,9 +19,11 @@ let g:ctrlp_lazy_update = 1
 [[plugins]]
 repo = 'junegunn/fzf'
 build = './install --all'
+merged = '0'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
+depends = 'fzf'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
