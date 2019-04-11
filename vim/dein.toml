@@ -42,6 +42,15 @@ repo = 'luochen1990/rainbow'
 hook_add = 'let g:rainbow_active = 1'
 
 [[plugins]]
+repo = 'mileszs/ack.vim'
+if = '''executable('ag')'''
+hook_add = '''
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+'''
+
+[[plugins]]
 repo = 'posva/vim-vue'
 on_ft = 'vue'
 
