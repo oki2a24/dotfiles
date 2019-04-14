@@ -23,3 +23,5 @@ if type __git_ps1 > /dev/null 2>&1 ; then
   '
 fi
 
+[[ -d ~/.composer/vendor/bin/ ]] && export PATH=$HOME/.composer/vendor/bin:$PATH
+
