@@ -1,7 +1,9 @@
 alias ls='ls -F -G'
 alias ll='ls -l'
 
-export PS1='\[\e[1;32m\]\u@\h\[\e[m\]:\[\e[1;34m\]\W\[\e[m\]\$ '
+readonly PS1PC_START='\[\e[1;32m\]\u@\h\[\e[m\]:\[\e[1;34m\]\W\[\e[m\]'
+readonly PS1PC_END='\$ '
+export PS1="${PS1PC_START}${PS1PC_END}"
 
 # WSL で Homebrew インストール済みならば使用
 [[ -r "/home/linuxbrew/.linuxbrew/bin/brew" ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
@@ -22,8 +24,8 @@ if type __git_ps1 > /dev/null 2>&1 ; then
   GIT_PS1_SHOWCOLORHINTS=true
   PROMPT_COMMAND='\
     __git_ps1 \
-    "\[\e[1;32m\]\u@\h\[\e[m\]:\[\e[1;34m\]\W\[\e[m\]" \
-    "\$ " \
+    "${PS1PC_START}" \
+    "${PS1PC_END}" \
   '
 fi
 
