@@ -9,6 +9,8 @@ ln -sfv ${DOTPATH}/bash/.bash_profile_mac ${HOME}/.bash_profile
 ln -sfv ${DOTPATH}/git/.gitconfig ${HOME}/.gitconfig
 ln -sfv ${DOTPATH}/git/.gitignore ${HOME}/.gitignore
 ln -sfv ${DOTPATH}/tmux/.tmux.conf ${HOME}/.tmux.conf
+mkdir -p ${HOME}/.vim/
+ln -sfv ${DOTPATH}/vim/coc-settings.json ${HOME}/.vim/coc-settings.json
 ln -sfv ${DOTPATH}/vim/.vimrc ${HOME}/.vimrc
 
 if [[ ! -d ~/.tmux/plugins/tpm ]]; then
