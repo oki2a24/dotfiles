@@ -26,6 +26,8 @@ set ambiwidth=double
 
 " 行番号を表示
 set number
+" カーソルラインをハイライト
+set cursorline
 " タブや改行を表示
 set list
 " タブや改行を表示する文字
