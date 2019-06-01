@@ -21,6 +21,8 @@ colorscheme iceberg
 " 設定 -------------------------
 " カレントバッファのファイルの文字エンコーディング
 set fileencodings=utf-8,sjis
+" □や○文字が崩れる問題を解決
+set ambiwidth=double
 
 " 行番号を表示
 set number
