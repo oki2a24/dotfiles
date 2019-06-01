@@ -70,13 +70,13 @@ repo = 'scrooloose/nerdtree'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-let g:ale_linters = {
-\  'php': ['phpcs'],
-\}
-let g:ale_php_phpcs_standard = 'PSR2'
-let g:ale_fixers = {}
-let g:ale_fixers['php'] = ['php_cs_fixer']
-'''
+#[[plugins]]
+#repo = 'w0rp/ale'
+#hook_add = '''
+#let g:ale_linters = {
+#\  'php': ['phpcs'],
+#\}
+#let g:ale_php_phpcs_standard = 'PSR2'
+#let g:ale_fixers = {}
+#let g:ale_fixers['php'] = ['php_cs_fixer']
+#'''
