@@ -75,6 +75,12 @@ repo = 'qpkorr/vim-renamer'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+hook_add = '''
+nmap <Leader>n [nerdtree]
+nnoremap [nerdtree] <Nop>
+nnoremap [nerdtree]t :NERDTreeToggle<Enter>
+nnoremap <silent> [nerdtree]f :NERDTreeFind<Enter>
+'''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
