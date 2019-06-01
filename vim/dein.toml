@@ -56,7 +56,15 @@ repo = 'neoclide/coc.nvim'
 if = '''executable('node') && executable('yarn')'''
 build = './install.sh nightly'
 merged = '0'
-#hook_add = 'source path/to/your/coc-setting.vim'
+hook_add = '''
+nmap <Leader>c [coc.nvim]
+nnoremap [coc.nvim] <Nop>
+" Remap keys for gotos
+nmap <silent> [coc.nvim]d <Plug>(coc-definition)
+nmap <silent> [coc.nvim]y <Plug>(coc-type-definition)
+nmap <silent> [coc.nvim]i <Plug>(coc-implementation)
+nmap <silent> [coc.nvim]r <Plug>(coc-references)
+'''
 
 [[plugins]]
 repo = 'posva/vim-vue'

@@ -1,6 +1,10 @@
 set encoding=utf-8
 scriptencoding utf-8
 
+" キーマッピング
+" プラグインで <Leader> 設定を有効にするためにここで定義
+let g:mapleader = "\<Space>"
+
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/dotfiles/vim/dein.rc.vim'
 
 " 全角スペースを可視化
