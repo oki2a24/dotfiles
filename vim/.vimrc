@@ -47,6 +47,11 @@ set softtabstop=2
 set autoindent
 " 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set smartindent
+" 拡張子によってインデントの幅を設定
+augroup fileTypeIndent
+  autocmd!
+  autocmd BufNewFile,BufRead *.php setlocal tabstop=4 softtabstop=4 shiftwidth=4
+augroup END
 
 " 改行での自動コメントアウトをオフ
 autocmd FileType * setlocal formatoptions-=ro
