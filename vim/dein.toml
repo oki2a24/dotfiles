@@ -76,6 +76,12 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Remap for rename current word
+nmap [coc.nvim]rn <Plug>(coc-rename)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
 '''
 
 [[plugins]]
