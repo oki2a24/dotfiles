@@ -1,0 +1,36 @@
+tap "caskroom/cask"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "kryptco/tap"
+tap "universal-ctags/universal-ctags"
+brew "bash-completion"
+brew "composer"
+brew "fzf"
+brew "git"
+brew "python"
+brew "mas"
+brew "node"
+brew "packer"
+brew "php"
+brew "starship"
+brew "the_silver_searcher"
+brew "tmux"
+brew "tree"
+brew "vim"
+brew "yarn"
+brew "kryptco/tap/kr"
+brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+cask "docker"
+cask "google-chrome"
+cask "vagrant"
+cask "virtualbox"
+cask "visual-studio-code"
+mas "Evernote", id: 406056744
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+mas "LastPass", id: 926036361
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
