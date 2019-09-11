@@ -13,3 +13,5 @@ type brew > /dev/null 2>&1 && [[ -r "$(brew --prefix)/etc/profile.d/bash_complet
 type brew > /dev/null 2>&1 && source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 
 [[ -d ~/.composer/vendor/bin/ ]] && export PATH=$HOME/.composer/vendor/bin:$PATH
+
+type starship > /dev/null 2>&1 && eval "$(starship init bash)"
