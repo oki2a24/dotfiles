@@ -5,6 +5,7 @@ Mac または WSL において、Homebrew を使ったパッケージインス�
 
 ## 使い方
 ```bash
-git clone https://github.com/oki2a24/.brew.git
 bash .brew/install.sh
 ```
+
+フォントの変更は手動で行ってください。 terminal.app の場合は、環境設定 (command + ,) > プロファイル > テキスト > フォント、から行えます。
