@@ -13,6 +13,7 @@ ln -sfv ${DOTPATH}/tmux/.tmux.conf ${HOME}/.tmux.conf
 mkdir -p ${HOME}/.vim/
 ln -sfv ${DOTPATH}/vim/coc-settings.json ${HOME}/.vim/coc-settings.json
 ln -sfv ${DOTPATH}/vim/.vimrc ${HOME}/.vimrc
+ln -sfv ${DOTPATH}/zsh/.zshrc ${HOME}/.zshrc
 
 if [[ ! -d ~/.tmux/plugins/tpm ]]; then
   echo "Clone TPM."
