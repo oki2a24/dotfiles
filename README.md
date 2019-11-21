@@ -14,3 +14,6 @@ git clone https://github.com/oki2a24/dotfiles.git
 cd dotfiles/
 bash link.sh
 ```
+
+## tmux のセットアップ手順
+tmux プラグインのインストールが必要です。 `tmux` で起動後、 `prefix` + <kbd>I</kbd> でプラグインをインストールしてください ([tpm/README.md at master · tmux-plugins/tpm](https://github.com/tmux-plugins/tpm/blob/master/README.md)) 。
