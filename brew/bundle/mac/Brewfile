@@ -4,7 +4,6 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "kryptco/tap"
 tap "universal-ctags/universal-ctags"
-brew "python"
 brew "ansible"
 brew "bash-completion"
 brew "composer"
@@ -15,6 +14,7 @@ brew "mas"
 brew "node"
 brew "packer"
 brew "php"
+brew "python"
 brew "starship"
 brew "the_silver_searcher"
 brew "tmux"
@@ -30,6 +30,7 @@ cask "vagrant"
 cask "virtualbox"
 cask "visual-studio-code"
 mas "Evernote", id: 406056744
+mas "GIPHY CAPTURE", id: 668208984
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194
