@@ -53,8 +53,8 @@ endif
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-if = '''executable('node') && executable('yarn')'''
-build = './install.sh nightly'
+if = '''executable('node')'''
+rev = 'release'
 merged = '0'
 hook_add = '''
 nmap <Leader>c [coc.nvim]
