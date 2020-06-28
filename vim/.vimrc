@@ -16,6 +16,7 @@ augroup highlightIdegraphicSpace
 augroup END
 
 " カラースキーム -------------------------
+set background=dark
 colorscheme iceberg
 
 " 設定 -------------------------
