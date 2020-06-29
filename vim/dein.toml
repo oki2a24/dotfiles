@@ -7,6 +7,13 @@ on_ft = 'toml'
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
+hook_add = '''
+  set background=dark
+  augroup colorschemeSetting
+    autocmd!
+    autocmd VimEnter * ++nested colorscheme iceberg
+  augroup END
+'''
 
 [[plugins]]
 repo = 'junegunn/fzf'

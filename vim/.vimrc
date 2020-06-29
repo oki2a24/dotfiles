@@ -15,10 +15,6 @@ augroup highlightIdegraphicSpace
   autocmd VimEnter,WinEnter * match IdeographicSpace /　/
 augroup END
 
-" カラースキーム -------------------------
-set background=dark
-colorscheme iceberg
-
 " 設定 -------------------------
 " カレントバッファのファイルの文字エンコーディング
 set fileencodings=utf-8,sjis
