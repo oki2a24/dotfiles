@@ -9,6 +9,8 @@ ln -sfv ${DOTPATH}/bash/.bash_profile_mac ${HOME}/.bash_profile
 ln -sfv ${DOTPATH}/bash/.bashrc ${HOME}/.bashrc
 ln -sfv ${DOTPATH}/git/.gitconfig ${HOME}/.gitconfig
 ln -sfv ${DOTPATH}/git/.gitignore ${HOME}/.gitignore
+mkdir -p ${HOME}/.config/
+ln -sfv ${DOTPATH}/starship/starship.toml ${HOME}/.config/starship.toml
 ln -sfv ${DOTPATH}/tmux/.tmux.conf ${HOME}/.tmux.conf
 mkdir -p ${HOME}/.vim/
 ln -sfv ${DOTPATH}/vim/coc-settings.json ${HOME}/.vim/coc-settings.json
