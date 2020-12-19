@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "kryptco/tap"
 tap "universal-ctags/universal-ctags"
@@ -14,7 +15,6 @@ brew "mas"
 brew "node"
 brew "packer"
 brew "php"
-brew "python"
 brew "starship"
 brew "the_silver_searcher"
 brew "tmux"
@@ -35,4 +35,5 @@ mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194
 mas "LastPass", id: 926036361
+mas "LINE", id: 539883307
 mas "Numbers", id: 409203825
