@@ -8,3 +8,4 @@ alias ll='ls -l'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(starship init zsh)"
+export PATH="/usr/local/sbin:$PATH"

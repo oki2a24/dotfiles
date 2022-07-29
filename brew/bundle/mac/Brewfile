@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
@@ -7,14 +8,15 @@ tap "kryptco/tap"
 tap "universal-ctags/universal-ctags"
 brew "ansible"
 brew "bash-completion"
+brew "php"
 brew "composer"
 brew "fzf"
 brew "git"
+brew "hadolint"
 brew "jq"
 brew "mas"
 brew "node"
 brew "packer"
-brew "php"
 brew "starship"
 brew "the_silver_searcher"
 brew "tmux"
@@ -23,17 +25,19 @@ brew "vim"
 brew "yarn"
 brew "kryptco/tap/kr"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+cask "adobe-acrobat-reader"
 cask "docker"
+cask "firefox"
 cask "font-source-code-pro-for-powerline"
 cask "google-chrome"
 cask "vagrant"
 cask "virtualbox"
 cask "visual-studio-code"
+cask "zoom"
 mas "Bitwarden", id: 1352778147
 mas "Evernote", id: 406056744
 mas "GIPHY CAPTURE", id: 668208984
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
+mas "GoodNotes", id: 1444383602
 mas "Kindle", id: 405399194
 mas "LINE", id: 539883307
-mas "Numbers", id: 409203825
+mas "QuickNome", id: 914182966
