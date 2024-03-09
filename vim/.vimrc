@@ -56,6 +56,9 @@ call jetpack#begin()
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+Jetpack 'Exafunction/codeium.vim'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 Jetpack 'luochen1990/rainbow'
 let g:rainbow_active = 1
 
