@@ -56,7 +56,7 @@ call jetpack#begin()
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-Jetpack 'Exafunction/codeium.vim'
+Jetpack 'Exafunction/codeium.vim', {'branch': 'main'}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 Jetpack 'luochen1990/rainbow'
