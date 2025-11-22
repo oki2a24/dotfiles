@@ -17,6 +17,10 @@ ln -sfv ${DOTPATH}/vim/coc-settings.json ${HOME}/.vim/coc-settings.json
 ln -sfv ${DOTPATH}/vim/.vimrc ${HOME}/.vimrc
 ln -sfv ${DOTPATH}/zsh/.zshrc ${HOME}/.zshrc
 
+mkdir -p ${HOME}/.gemini/
+ln -sfv ${DOTPATH}/.gemini/GEMINI.md ${HOME}/.gemini/GEMINI.md
+ln -sfv ${DOTPATH}/.gemini/settings.json ${HOME}/.gemini/settings.json
+
 if [[ ! -d ~/.tmux/plugins/tpm ]]; then
   echo "Clone TPM."
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
