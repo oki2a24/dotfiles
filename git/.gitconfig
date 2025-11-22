@@ -19,3 +19,5 @@
   vscode = cmd
 [url "git@github.com:"]
   pushInsteadOf = https://github.com/
+[init]
+	defaultBranch = main

@@ -1,13 +1,21 @@
-set encoding=utf-8
-scriptencoding utf-8
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" # コンセプト
+" - バニラ Vim プラスアルファを心がける。
+" - 操作に関しては既存の状態を保ち、変更しないでそのままとすることを心がける。
+" - UI は自らの好みで好きなタイミングでカスタマイズする。
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" https://vim-jp.org/vimdoc-ja/starting.html#defaults.vim
+" https://vim-jp.org/vimdoc-ja/usr_05.html#defaults.vim-explained
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
 
 " キーマッピング
 " プラグインで <Leader> 設定を有効にするためにここで定義
 let g:mapleader = "\<Space>"
 
-execute 'source' fnamemodify(expand('<sfile>'), ':h').'/dotfiles/vim/dein.rc.vim'
-
-" 全角スペースを可視化
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" 全角スペースを可視化 (colorscheme の指定が必要な点に注意)
 " https://vim-jp.org/vim-users-jp/2009/07/12/Hack-40.html
 augroup highlightIdegraphicSpace
   autocmd!
@@ -15,101 +23,141 @@ augroup highlightIdegraphicSpace
   autocmd VimEnter,WinEnter * match IdeographicSpace /　/
 augroup END
 
-" 設定 -------------------------
-" カレントバッファのファイルの文字エンコーディング
-set fileencodings=utf-8,sjis
-" □や○文字が崩れる問題を解決
-set ambiwidth=double
-
-" 行番号を表示
-set number
-" カーソルラインをハイライト
-set cursorline
-" タブや改行を表示
-set list
-" タブや改行を表示する文字
-set listchars=tab:>-,extends:<,trail:-,eol:<
-
-" 常にタブラインを表示
-set showtabline=2
-" タブ入力を複数の空白入力に置き換え
-set expandtab
-" タブ表示時の幅
-set tabstop=2
-" (自動)インデントの各段階に使われる空白の数
-set shiftwidth=2
-" 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
-set softtabstop=2
-" 改行時に前の行のインデントを継続する
-set autoindent
-" 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
-set smartindent
-" 拡張子によってインデントの幅を設定
-augroup fileTypeIndent
+" 自動保存・自動読み込みの設定
+set autoread
+augroup AutoSaveAndRead
   autocmd!
-  autocmd BufNewFile,BufRead *.php setlocal tabstop=4 softtabstop=4 shiftwidth=4
+  " フォーカス時やバッファ移動時に外部での変更を検知
+  autocmd FocusGained,BufEnter * checktime
+  " フォーカスを失った時に自動保存
+  autocmd FocusLost * wall
 augroup END
 
-" 改行での自動コメントアウトをオフ
-autocmd FileType * setlocal formatoptions-=ro
+" ヤンク時にクリップボードにもコピーする
+set clipboard=unnamed
 
-" ビープ音を可視化
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" colorscheme に関連する項目
+" カーソルがあるテキスト行を CursorLine hl-CursorLine で強調する。
+set cursorline
+" 表示に使われる文字を設定
+set list
+set listchars=tab:>-
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" ビープ音に、実際は音でなくビジュアルベル {訳注: 画面フラッシュ} を使う。
 set visualbell
 
-" ヤンクでクリップボードにコピー
-set clipboard=unnamed,autoselect
-" Windows Subsystem for Linux で、ヤンクでクリップボードにコピー
-if system('uname -a | grep Microsoft') != ''
-  augroup myYank
-    autocmd!
-    autocmd TextYankPost * :call system('clip.exe', @")
-  augroup END
-endif
-
-" カーソルが何行目の何列目に置かれているかを表示
-set ruler
-
-" 検索パターンにマッチするテキストを全て強調表示
+" 前回の検索パターンが存在するとき、それにマッチするテキストを全て強調表示する。
 set hlsearch
 
-" 挿入モードでの <BS> キー動作制御
-set backspace=indent,eol,start
-
-" ウィンドウの最後の行ができる限りまで表示
-set display=lastline
-
-" マウスを5モード全てで利用可能にする。
-" ノーマルモードおよび端末モード
-" ビジュアルモード
-" 挿入モード
-" コマンドラインモード
-" ヘルプファイルを閲覧しているときの上記のモード全て
-if has("mouse")
-  set mouse=a
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" プラグイン管理
+" https://github.com/tani/vim-jetpack#automatic-installation-on-startup
+" vimrc 配置場所は "$HOME/.vimrc" としているため、プラグイン格納場所として先頭に ".vim/" を追加している。
+let s:jetpackfile = expand('<sfile>:p:h') .. '/.vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
+let s:jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+if !filereadable(s:jetpackfile)
+  call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
 endif
 
-" Vim 起動時に非点滅のブロックタイプのカーソル
-let &t_te .= "\e[2 q"
-" 挿入モード時に非点滅の縦棒タイプのカーソル
-let &t_SI .= "\e[6 q"
-" ノーマルモード時に非点滅のブロックタイプのカーソル
-let &t_EI .= "\e[2 q"
-" 置換モード時に非点滅の下線タイプのカーソル
-let &t_SR .= "\e[4 q"
-" vim 終了時にカーソルを mintty のデフォルトに設定
-let &t_te .= "\e[0 q"
+" https://github.com/tani/vim-jetpack#vim-plug-style
+packadd vim-jetpack
+call jetpack#begin()
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" colorscheme 以外
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Bash の構文ハイライトをカバー
-let g:is_bash = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""
+Jetpack 'Exafunction/codeium.vim', {'branch': 'main'}
 
-" Markdown 内に書かれているプログラミング言語をハイライト
-" http://mattn.kaoriya.net/software/vim/20140523124903.htm
-let g:markdown_fenced_languages = [
-\ 'bash=sh',
-\ 'css',
-\ 'html',
-\ 'javascript',
-\ 'js=javascript',
-\ 'json=javascript',
-\ 'php',
-\]
+""""""""""""""""""""""""""""""""""""""""""""""""""
+Jetpack 'luochen1990/rainbow'
+let g:rainbow_active = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
+" https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#install-extensions
+let g:coc_global_extensions = [
+  \ 'coc-docker',
+  \ 'coc-git',
+  \ 'coc-json',
+  \ 'coc-phpls',
+  \ 'coc-tabnine',
+  \ 'coc-tsserver',
+  \ 'coc-yaml',
+  \ ]
+" https://github.com/neoclide/coc.nvim#example-vim-configuration
+nmap <Leader>c [coc.nvim]
+nnoremap [coc.nvim] <Nop>
+
+" GoTo code navigation
+nmap <silent> [coc.nvim]d <Plug>(coc-definition)
+nmap <silent> [coc.nvim]y <Plug>(coc-type-definition)
+nmap <silent> [coc.nvim]i <Plug>(coc-implementation)
+nmap <silent> [coc.nvim]r <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> [coc.nvim]K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" ?????????? 使い方がよくわかっていない
+" Highlight the symbol and its references when holding the cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming
+nmap [coc.nvim]rn <Plug>(coc-rename)
+
+" ?????????? 使い方がよくわかっていない
+" Remap keys for applying refactor code actions
+nmap <silent> [coc.nvim]re <Plug>(coc-codeaction-refactor)
+xmap <silent> [coc.nvim]r  <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> [coc.nvim]r  <Plug>(coc-codeaction-refactor-selected)
+
+" ?????????? 使い方がよくわかっていない
+" Run the Code Lens action on the current line
+nmap [coc.nvim]cl  <Plug>(coc-codelens-action)
+
+" Add `:Format` command to format current buffer
+command! -nargs=0 Format :call CocActionAsync('format')
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:polyglot_disabled = ['sensible']
+Jetpack 'sheerun/vim-polyglot'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+Jetpack 'tani/vim-jetpack', {'opt': 1} "bootstrap
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+Jetpack 'vim-jp/vimdoc-ja'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" colorscheme
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Jetpack 'aereal/vim-colors-japanesque'
+" colorscheme japanesque
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+Jetpack 'joshdick/onedark.vim'
+syntax on
+" https://github.com/joshdick/onedark.vim/issues/110#issuecomment-345599864
+packadd! onedark.vim
+colorscheme onedark
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"Jetpack 'rhysd/vim-color-spring-night'
+"colorscheme spring-night
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Jetpack 'sainnhe/everforest'
+" colorscheme everforest
+call jetpack#end()
