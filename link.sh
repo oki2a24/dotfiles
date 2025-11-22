@@ -16,7 +16,6 @@ mkdir -p ${HOME}/.vim/
 ln -sfv ${DOTPATH}/vim/coc-settings.json ${HOME}/.vim/coc-settings.json
 ln -sfv ${DOTPATH}/vim/.vimrc ${HOME}/.vimrc
 ln -sfv ${DOTPATH}/zsh/.zshrc ${HOME}/.zshrc
-
 mkdir -p ${HOME}/.gemini/
 ln -sfv ${DOTPATH}/.gemini/GEMINI.md ${HOME}/.gemini/GEMINI.md
 ln -sfv ${DOTPATH}/.gemini/settings.json ${HOME}/.gemini/settings.json
