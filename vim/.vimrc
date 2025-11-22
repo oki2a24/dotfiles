@@ -23,6 +23,19 @@ augroup highlightIdegraphicSpace
   autocmd VimEnter,WinEnter * match IdeographicSpace /　/
 augroup END
 
+" 自動保存・自動読み込みの設定
+set autoread
+augroup AutoSaveAndRead
+  autocmd!
+  " フォーカス時やバッファ移動時に外部での変更を検知
+  autocmd FocusGained,BufEnter * checktime
+  " フォーカスを失った時に自動保存
+  autocmd FocusLost * wall
+augroup END
+
+" ヤンク時にクリップボードにもコピーする
+set clipboard=unnamed
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " colorscheme に関連する項目
 " カーソルがあるテキスト行を CursorLine hl-CursorLine で強調する。
