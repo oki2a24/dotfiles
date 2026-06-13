@@ -19,6 +19,8 @@ ln -sfv ${DOTPATH}/zsh/.zshrc ${HOME}/.zshrc
 mkdir -p ${HOME}/.gemini/
 ln -sfv ${DOTPATH}/.gemini/GEMINI.md ${HOME}/.gemini/GEMINI.md
 ln -sfv ${DOTPATH}/.gemini/settings.json ${HOME}/.gemini/settings.json
+mkdir -p ${HOME}/.hermes/profiles/
+ln -sfv ${DOTPATH}/.hermes_profiles/software-engineer ${HOME}/.hermes/profiles/software-engineer
 mkdir -p ${HOME}/.config/zellij/
 ln -sfv ${DOTPATH}/zellij/config.kdl ${HOME}/.config/zellij/config.kdl
 
