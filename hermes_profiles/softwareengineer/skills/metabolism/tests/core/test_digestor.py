@@ -1,11 +1,23 @@
 import unittest
+import sys
+import os
 from datetime import datetime, timedelta
+from pathlib import Path
 
-# We inject these to avoid the broken module issue during this session
+# Configure sys.path to allow importing the module under test
+ROOT = str(Path(__file__).resolve().parents[3])
+if ROOT not in sys.path:
+    sys.path.append(ROOT)
+
 try:
     from hermes_profiles.softwareengineer.skills.metabolism.core.models import MetabolicEvent, ErrorDimension
 except ImportError:
-    from her_models_fix import MetabolicEvent, ErrorDimension # This is what it was trying to do
+    # Fallback if running from a different context
+    import sys
+    import os
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    sys.path.append(os.path.abspath(os.path.join(current_dir, "../../../../")))
+    from hermes_profiles.softwareengineer.skills.metabolism.core.models import MetabolicEvent, ErrorDimension
 
 class TestDigestor(unittest.TestCase):
     def setUp(self):
