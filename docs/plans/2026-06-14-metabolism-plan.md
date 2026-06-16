@@ -6,30 +6,30 @@
 
 ---
 
-## フェーズ 1: 基盤構築 (Foundation) [Project Progress: 0%]
+## フェーズ 1: 基盤構築 (Foundation) [Project Progress: 100% - COMPLETED]
 
-### Task 1: プロフィールディレクトリ構造の作成
-- [ ] `~/.hermes_profiles/software-engineer/skills/metabolism/core/` を作成
-- [ ] `~/.hermes_profiles/software-engineer/skills/metabolism/templates/` を作成
-- [ ] `~/.hermes_profiles/software-engineer/skills/metabolism/utils/` を作成
-- [ ] `~/.hermes_profiles/software-engineer/skills/metabolism/history/` を作成
+### Task 1: プロフィールディレクトリ構造の作成 - ✅ (Completed)
+- [x] `hermes_profiles/softwareengineer/skills/metabolism/core/` を作成
+- [x] `hermes_profiles/softwareengineer/skills/metabolism/templates/` を作成
+- [x] `hermes_profiles/softwareengineer/skills/metabolism/utils/` を作成
+- [x] `hermes_profiles/softwareengineer/skills/metabolism/history/` を作成
 
-### Task 2: スキルメタデータの定義
-- [ ] `~/.hermes_profiles/software-engineer/skills/metabolism/SKILL.md` を作成（Name, Description, Categoriesを規定）
+### Task 2: スキルメタデータの定義 - ✅ (Completed)
+- [x] `hermes_profiles/softwareengineer/skills/metabolism/SKILL.md` を作成（Name, Description, Categoriesを規定）
 
-### Task 3: `MetabolicEvent` スキーマの実装
-- [ ] `~/.hermes_profiles/software-engineer/skills/metabolism/core/models.py` を作成 (Python Dataclassによる定義)
-  - [ ] ID, Timestamp の実装
-  - [ ] Source (terminal/user_correction) の実装
-  - [ ] Dimension (mechanical/cognitive/operational) の実装
-  - [ ] **Model Version / Environment Context** の保持（陳腐化判定に必須）
+### Task 3: `MetabolicEvent` スキーマの実装 - ✅ (Completed)
+- [x] `hermes_profiles/softwareengineer/skills/metabolism/core/models.py` を作成 (Python Dataclassによる定義)
+  - [x] ID, Timestamp の実装
+  - [x] Source (terminal/user_correction) の実装
+  - [x] Dimension (mechanical/cognitive/operational) の実装
+  - [x] **Model Version / Environment Context** の保持（陳腐化判定に必須）
 
 ---
 
 ## フェーズ 2: データモデルと言語設計 (Detection & Schema) [Project Progress: 0%]
 
 ### Task 4: Observer（観測者）の実装
-- [ ] `~/.hermes_profiles/software-engineer/skills/metabolism/core/observer.py` を作成
+- [ ] `hermes_profiles/softwareengineer/skills/metabolism/core/observer.py` を作成
   - [ ] ターミナルの `exit code != 0` を監視するロジックを実装
   - [ ] ユーザーの訂正キーワード（"no,", "wrong", etc.）を検知するフィルタリングロジックを実装
 
@@ -38,18 +38,18 @@
 ## フェーズ 3: 知能層の開発 (The Intelligence Layer) [Project Progress: 0%]
 
 ### Task 5: Philosopher（解析器）の実装
-- [ ] `~/.hermes_profiles/software-engineer/skills/metabolism/templates/rca_prompt.md` を作成 (原因分析用プロンプトテンプレート)
-- [ ] `~/.hermes_profiles/software-engineer/skills/metabolism/core/philosopher.py` を作成
+- [ ] `hermes_profiles/softwareengineer/skills/metabolism/templates/rca_prompt.md` を作成 (原因分析用プロンプトテンプレート)
+- [ ] `hermes_profiles/softwareengineer/skills/metabolism/core/philosopher.py` を作成
 
 ### Task 6: Architect（建築家）の実装
-- [ ] `~/.hermes_profiles/software-engineer/skills/metabolism/core/architect.py` を作成 (解析結果をツール実行コマンドへと変換)
+- [ ] `hermes_profiles/softwareengineer/skills/metabolism/core/architect.py` を作成 (解析結果をツール実行コマンドへと変換)
 
 ---
 
 ## フェーズ 4: 代謝と履歴管理 (Metabolism & History) [Project Progress: 0%]
 
 ### Task 7: Historian（歴史家）の実想
-- [ ] `~/.hermes_profiles/software-engineer/skills/metabolism/core/historian.py` を作成 (JSON形式による進化ログの永続化)
+- [ ] `hermes_profiles/softwareengineer/skills/metabolism/core/historian.py` を作成 (JSON形式による進化ログの永続化)
 
 ### Task 8: Apoptosis（代謝・廃棄）ロジックの実装
 - [ ] **意思決定マトリクスの実装:**
