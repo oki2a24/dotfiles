@@ -1,65 +1,76 @@
-# Implementation Plan (softwareengineer profile)
+# 実装計画書 (softwareengineer プロファイル)
 
-## Overview
-This document serves as the master checklist and technical design specification for implementing a "Continuous Identity Injection" system within the `softwareengineer` profile. The goal is to ensure that agent behaviors (language, convention, etc.) are enforced as core principles through `on_pre_llm_call` hooks rather than transient memory.
+## 概要
+本ドキュメントは、Hermes Agent のプロファイルにおいて、「アイデンティティ（規律）」をセッション中のすべての思考プロセスに対して永続的に、かつ自動的に適用するための実装計画である。
 
-## 🛠️ Implemented Artifacts
-- [x] `identity.md`: Core behavioral rules and conventions.
-- [x] `README.md`: Profile overview and architecture design.
-- [x] `IMPLEMENTATION_PLAN.md`: Master task list (this file).
+**プロジェクト目標:** ユーザーが `identity.md` で定義した規律を、会話の文脈に依存せず、モデルの推論サイクルそのものに組み込むことで、一貫した振る舞いを保証する。
 
 ---
 
-## 📋 Project Status
-*Current Stage: Phase 0 - Verification & Feasibility Study*
+## 📋 進捗状況 (Current Status)
+*現在のフェーズ: フェーズ 0 - 検証フェーズ*
 
-| Milestone | Description | Status |
+| マイルストーン | 説明 | ステータス |
 | :--- | :--- | :--- |
-| **Phase 0** | Technical validation of `on_pre_llm_call` hooks | In Progress |
-| **Phase 1** | Foundation (Identity definitions) | Completed |
-| **Phase 2** | Implementation (Skill & Hook integration) | Pending |
-| **Phase 3** | Validation (Conflict & Consistency testing) | Pending |
+| **フェーズ 0** | 技術検証 (Hooks の仕様確認) | 進行中 |
+| **フェーズ 1** | 基盤構築 (アイデンティティ定義) | 完了 |
+| **フェーズ 2** | 実装フェーズ (Identity Loader スキルの実装) | 未着手 |
+| **フェーズ 3** | 検証フェーズ (整合性テスト・衝突検知) | 未着手 |
 
 ---
 
-## 🛠️ Detailed Todo List
+## 🛠️ 詳細タスクリスト (Detailed Todo List)
 
-### Phase 0: Verification & Feasibility Study
-Goal: Technically verify the `on_pre_llm_call` hook capability as per [hermes-agent documentation](https://hermes-agent.nousresearch.com/docs/user-guide/features/hooks#on_pre_llm_call).
+### フェーズ 0: 検証フェーズ (Verification & Feasibility Study)
+目標：`on_pre_llm_call` フックの仕様を詳細に調査し、実装が可能かを判断する。
 
-- [ ] **Task 0.1: Technical Analysis of `on_pre_llm_call`**
-    - Verify the signature of the hook (which arguments are passed during a pre-LLM call).
-    - Confirm if the hook allows modifying the existing message list or injecting new messages into the context.
-    - Determine the lifecycle stage: Does it trigger before every single turn?
-- [ ] **Task 0.2: Proof of Concept (PoC)**
-    - Simulate/test a mechanism where an `identity_loader` skill is triggered via this hook to inject `identity.md` into the conversation context.
+- [ ] **タスク 0.1: 公式ドキュメントの詳細解析**
+    - https://hermes-agent.nousresearch.com/docs/user-guide/features/hooks#on_pre_llm_call を読み込み、以下の技術仕様を特定する：
+        * `on_pre_llm_call` に渡される引数（Context, Messages等）の構造。
+        * フック内でメッセージ列に対し、新しいコンテキスト（System Message 等）を注入できるか。
+        *  inject した情報の優先度と持続性。
+- [ ] **タスク 0.2: 技術検証 (PoC)**
+    - テスト用セッションを作成し、Hook を介して `identity.md`の内容が推論プロンプトに反映されるかをシミュレーションする。
 
-### Phase 1: Foundation Setup (Completed)
-- [x] Finalize `identity.md`.
-- [x] Establish documentation structure (`README.md`, etc.).
+### フェーズ 1: 基盤構築フェーズ (Foundation Setup)
+目標：アイデンティティの定義を完了させ、リポジトリを整理する。
 
-### Phase 2: Implementation
-Goal: Move from theory to functional code.
+- [x] **タスク 1.1: Identity 定義書の完成**
+    - `identity.md` を作成（会話ルール、コミット規約、`@Why` タグ等）。
+- [x] **タスク 1.2: ドキュメント資産の整備**
+    *   `ARCHITECTURE.md`: 実装アーキテクチャ図。
+    *   `CONVENTIONS.md`: コーディングおよびドキュメンテーション規約の詳細。
 
-- [ ] **Task 2.1: Develop `identity_loader` Skill**
-    - Create a tool that reads `identity.md` and formats it for context injection.
-- [ ] **Task 2.2: Hook Integration**
-    - Configure the agent/gateway to invoke `identity_loader` via the `on_pre_llm_call` hook for every turn.
+### フェーズ 2: 実装フェーズ (Implementation)
+目標：プログラマティックな注入メカニズムを構築する。
 
-### Phase 3: Validation & Stress Test
-Goal: Ensure the "Guardrails" are impenetrable by transient memory.
+- [ ] **タスク 2.1: `identity_loader` スキルの実装**
+    *   `identity.md` を読み込み、セッションコンテキストへ挿入するための Python ロジックの開発。
+- [ ] **タスク 2.2: Hook の統合（自動化）**
+    *   `on_pre_llm_call` で `identity_loader` が自動実行されるよう構成を適用する。
 
-- [ ] **Task 3.1: Context Stability Test**
-    - Verify that rules remain in context even after long conversations (Token limit testing).
-- [ ] **Task 3.2: Conflict Resolution Test**
-    - Intentionally attempt to trigger a "Memory vs Identity" conflict and verify the `Duty to Question` response.
+### フェーズ 3: 検証フェーズ (Validation & Stress Test)
+目標：実装された規律が、メモリ経由の要求（ユーザーからの逸脱指示）に対して機能するかを確認する。
+
+- [ ] **タスク 3.1: 持続性テスト**
+    *   長い会話において、注入されたアイデンティティがコンテキストから消失しないかを検証。
+- [ ] **Task 3.2: 整合性・衝突検知テスト (Conflict Test)**
+    * `Identity` と `Memory` が矛盾する要求を受け取った際、「不一致の報告」が行われるかを確認。
 
 ---
 
-## 📂 Documentation Reference
-*Located in `/Users/omi2a24/dotfiles/docs/plans/` (or current repo's docs directory)*
-- `2026-06-14-metabolism-design.md`: Reference for previous architecture patterns.
-- `2026-06-14-metabolism-plan.md`: Previous planning logic.
+## 📂 ドキュメント構成 (Documentation Structure)
+- `identity.md`: アイデンティティの定義（ソース・オブ・トゥルース）。
+- `README.md`: プロファイルの概要と設計思想。
+- `ARCHITECTURE.md`: 実装アーキテクチャ詳細。
+- `CONVENTIONS.md`: 規約の詳細カタログ。
+- `IMPLEMENTATION_PLAN.md`: 本ドキュメント（進捗管理用）。
 
 ---
-*Last updated: 2026-06-20*
+
+## 📝 メモ (Notes)
+*   実装の核となるのは、`on_pre_llm_call` フックによる「思考への直接注入」である。
+*   設計思想：規律は「学習すべき知識」ではなく、「環境としての前提条件」とする。
+
+---
+*最終更新: 2026-06-20*
