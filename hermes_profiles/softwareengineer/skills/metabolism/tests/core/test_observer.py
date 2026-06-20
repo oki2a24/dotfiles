@@ -3,37 +3,37 @@ from datetime import datetime
 from hermes_profiles.softwareengineer.skills.metabolism.core.observer import Observer, MetabolicEvent, ErrorDimension
 
 class TestObserver(unittest.TestCase):
-    """Test suite for the Observer class."""
+    """Observer クラスのテストスイート。"""
 
     def setUp(self):
         self.observer = Observer()
 
     def test_parse_terminal_error(self):
-        """Test that a non-zero exit code triggers a MECHANICAL error event."""
+        """終了コードが非ゼロの場合、MECHANICAL なエラーイベントが生成されることを検証する。"""
         tool_result = {
             "exit_code": 1,
             "output": "Error: command not found"
         }
         event = self.observer.parse_terminal_output(tool_result)
-
         self.assertIsNotNone(event)
         self.assertIsInstance(event, MetabolicEvent)
         self.assertEqual(event.dimension, ErrorDimension.MECHANICAL)
         self.assertEqual(event.source, "terminal")
-        self.assertIn("exited with non-zero status: 1", event.issue_description)
+        # 実装に合わせて日本語のメッセージを検証する。
+        self.assertIn("コマンドが非ゼロのステータスで終了しました (status: 1)", event.issue_description)
 
     def test_detect_user_correction(self):
-        """Test that user correction keywords are detected as COGNITIVE errors."""
+        """ユーザーの訂正キーワードが含まれる場合、COGNITIVE なエラーイベントが生成されることを検証する。"""
         text = "No, that's wrong!"
         event = self.observer.detect_user_correction(text)
-
         self.assertIsNotNone(event)
         self.assertEqual(event.dimension, ErrorDimension.COGNITIVE)
         self.assertEqual(event.source, "user_correction")
-        self.assertIn("User correction detected", event.issue_description)
+        # 実装に合わせて日本語のメッセージを検証する。
+        self.assertIn("ユーザーによる訂正を検知しました", event.issue_description)
 
     def test_parse_terminal_success(self):
-        """Test that a zero exit code returns None (no error)."""
+        """終了コードがゼロの場合、イベントは生成されない（None が返る）ことを検証する。"""
         tool_result = {
             "exit_code": 0,
             "output": "Success!"

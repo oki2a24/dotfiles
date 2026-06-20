@@ -1,30 +1,28 @@
 import unittest
 import sys
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
+from pathlib import Path
 
 # Configure sys.path to allow importing the module under test
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
+ROOT = str(Path(__file__).resolve().parents[3])
+if ROOT not in sys.path:
+    sys.path.append(ROOT)
 
 try:
     from hermes_profiles.softwareengineer.skills.metabolism.core.models import MetabolicEvent, ErrorDimension
 except ImportError:
-    # Fallback for different directory structures if needed during testing
+    # Fallback if running from a different context
     import sys
-    from pathlib import Path
-    project_root = str(Path(__file__).resolve().parents[3])
-    if project_root not in sys.path:
-        sys.path.append(project_root)
-    try:
-        from hermes_profiles.softwareengineer.skills.metabolism.core.models import MetabolicEvent, ErrorDimension
-    except ImportError as e:
-        raise ImportError(f"Could not find modules. Path attempted: {sys.path}\nError: {e}")
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    sys.path.append(os.path.abspath(os.path.join(current_dir, "../../../../")))
+    from hermes_profiles.softwareengineer.skills.metabolism.core.models import MetabolicEvent, ErrorDimension
 
 class TestMetabolicEvent(unittest.TestCase):
-    """Test suite for MetabolicEvent model."""
+    """MetabolicEvent モデルのテストスイート。"""
 
     def test_initialization(self):
-        """Test that initialization works correctly (RED)"""
+        """初期化が正しく行われ、全ての属性値が適切にセットされることを検証する。"""
         now = datetime(2026, 6, 14, 12, 0, 0)
         event = MetabolicEvent(
             event_id="test-123",
@@ -44,7 +42,7 @@ class TestMetabolicEvent(unittest.TestCase):
         self.assertEqual(event.model_version, "v1")
 
     def test_serialization_deserialization(self):
-        """Test serialization and deserialization (RED)"""
+        """シリアライズ（辞書変換）とデシリアライズ（オブジェクト復元）が正しく行われ、データが完全に一致することを検証する。"""
         now = datetime(2026, 6, 14, 12, 0, 0)
         original = MetabolicEvent(
             event_id="test-ser-des",
@@ -54,9 +52,15 @@ class TestMetabolicEvent(unittest.TestCase):
             issue_description="Test serialization"
         )
         
+        # シリアライズ
         data = original.to_dict()
+        self.assertEqual(data["event_id"], "test-ser-des")
+        self.assertEqual(data["timestamp"], now.isoformat())
+
+        # デシリアライズ
         restored = MetabolicEvent.from_dict(data)
         
+        # 検証
         self.assertEqual(original.event_id, restored.event_id)
         self.assertEqual(original.timestamp.isoformat(), restored.timestamp.isoformat())
         self.assertEqual(original.dimension, restored.dimension)
