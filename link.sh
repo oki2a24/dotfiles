@@ -24,6 +24,11 @@ ln -sfv ${DOTPATH}/hermes_profiles/softwareengineer ${HOME}/.hermes/profiles/sof
 mkdir -p ${HOME}/.config/zellij/
 ln -sfv ${DOTPATH}/zellij/config.kdl ${HOME}/.config/zellij/config.kdl
 
+mkdir -p ${HOME}/Library/LaunchAgents
+ln -sfv \
+  ${DOTPATH}/LaunchAgents/com.oki2a24.ollama-env.plist \
+  ${HOME}/Library/LaunchAgents/com.oki2a24.ollama-env.plist
+
 if [[ ! -d ~/.tmux/plugins/tpm ]]; then
   echo "Clone TPM."
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
