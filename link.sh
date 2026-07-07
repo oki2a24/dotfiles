@@ -29,6 +29,9 @@ ln -sfv \
   ${DOTPATH}/LaunchAgents/com.oki2a24.ollama-env.plist \
   ${HOME}/Library/LaunchAgents/com.oki2a24.ollama-env.plist
 
+mkdir -p ${HOME}/.config/opencode
+ln -sfv ${DOTPATH}/opencode/opencode.jsonc ${HOME}/.config/opencode/opencode.jsonc
+
 if [[ ! -d ~/.tmux/plugins/tpm ]]; then
   echo "Clone TPM."
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
