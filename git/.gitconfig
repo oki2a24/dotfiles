@@ -8,16 +8,16 @@
   commentchar = ";"
 [alias]
   graph = log --decorate --graph --oneline --date=format:'%Y-%m-%d %H:%M' --format='%C(yellow)%h%Creset %C(magenta)[%cd]%Creset %C(auto)%d %s %Cblue<%an>%Creset'
-[diff]
-  tool = vscode
-[difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
-[merge]
-  tool = vscode
-  conflictStyle = diff3
-[merge "tool"]
-  vscode = cmd
-[url "git@github.com:"]
-  pushInsteadOf = https://github.com/
+# [diff]
+#   tool = vscode
+# [difftool "vscode"]
+#   cmd = code --wait --diff $LOCAL $REMOTE
+# [merge]
+#   tool = vscode
+#   conflictStyle = diff3
+# [merge "tool"]
+#   vscode = cmd
+# [url "git@github.com:"]
+#   pushInsteadOf = https://github.com/
 [init]
 	defaultBranch = main
