@@ -27,7 +27,11 @@ __run_with_provider_if_herdr() {
   local cmd=$1
   shift
   if [[ -n ${HERDR_ENV:-} && ${HERDR_ENV:-} == 1 ]]; then
-    command "$cmd" --provider ollama "$@"
+    case "$cmd" in
+      codex) command "$cmd" --local-provider ollama "$@" ;;
+      pi)    command "$cmd" --provider ollama "$@" ;;
+      *)     command "$cmd" "$@" ;;
+    esac
   else
     command "$cmd" "$@"
   fi

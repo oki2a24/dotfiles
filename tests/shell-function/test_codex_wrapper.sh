@@ -25,7 +25,7 @@ fi
 # HERDR_ENV=1 時のテスト - ここで失敗するはず
 export HERDR_ENV=1
 result=$(codex arg1 arg2 | xargs)
-expected="--provider ollama arg1 arg2"
+expected="--local-provider ollama arg1 arg2"
 if [[ "$result" != "$expected" ]]; then
   echo "FAIL: HERDR_ENV=1 expected '$expected', got '$result'"
   exit 1
@@ -55,7 +55,11 @@ done
 export HERDR_ENV=1
 for cmd in codex claude pi; do
   result=$($cmd a b | xargs)
-  expected="--provider ollama a b"
+  case $cmd in
+    codex) expected="--local-provider ollama a b" ;;
+    pi)    expected="--provider ollama a b" ;;
+    *)     expected="a b" ;;
+  esac
   if [[ "$result" != "$expected" ]]; then
     echo "FAIL: $cmd HERDR_ENV=1 expected '$expected', got '$result'"
     exit 1
