@@ -10,6 +10,8 @@ echo "Creat dotfile symbolic links."
 ln -sfv ${DOTPATH}/git/.gitconfig ${HOME}/.gitconfig
 ln -sfv ${DOTPATH}/git/.gitignore ${HOME}/.gitignore
 mkdir -p ${HOME}/.config/
+mkdir -p ${HOME}/.config/nvim
+ln -sfv ${DOTPATH}/nvim/init.lua ${HOME}/.config/nvim/init.lua
 ln -sfv ${DOTPATH}/starship/starship.toml ${HOME}/.config/starship.toml
 ln -sfv ${DOTPATH}/tmux/.tmux.conf ${HOME}/.tmux.conf
 mkdir -p ${HOME}/.vim/
