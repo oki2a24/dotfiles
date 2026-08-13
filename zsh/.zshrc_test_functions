@@ -7,6 +7,16 @@ __herdr_current_pane_id() {
   echo "$pane_id"
 }
 
+__herdr_pane_is_agent() {
+  local pane_id=$1
+  if [[ -z $pane_id ]]; then
+    return 1
+  fi
+  local agents
+  agents=$(herdr agent list 2>/dev/null | jq -r '.result.agents[].pane_id' 2>/dev/null)
+  [[ -n $agents ]] && printf '%s\n' "$agents" | grep -Fxq "$pane_id"
+}
+
 __herdr_pane_exists() {
   local target=$1
   if [[ -z $target ]]; then
