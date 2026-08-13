@@ -30,11 +30,13 @@ __herdr_pane_exists() {
 __run_with_provider_if_herdr() {
   local cmd=$1 provider_flag=$2 provider_val=$3
   shift 3
-  if [[ -z ${HERDR_PANE_ID:-} ]]; then
+  local pane_id
+  pane_id=$(__herdr_current_pane_id 2>/dev/null)
+  if [[ -z $pane_id ]]; then
     command "$cmd" "$@"
     return
   fi
-  if __herdr_pane_exists "$HERDR_PANE_ID"; then
+  if __herdr_pane_is_agent "$pane_id"; then
     command "$cmd" "$provider_flag" "$provider_val" "$@"
   else
     command "$cmd" "$@"
