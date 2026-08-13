@@ -23,6 +23,25 @@ compinit
 export PATH="/Users/oki2a24/.hermes/node/bin:$PATH"
 
 # Herdr Agent 起動判定によるローカル LLM 強制ロジック
+__herdr_current_pane_id() {
+  local pane_id
+  pane_id=$(herdr pane current --current 2>/dev/null | jq -r '.result.pane_id // empty' 2>/dev/null)
+  if [[ -z $pane_id ]]; then
+    return 1
+  fi
+  echo "$pane_id"
+}
+
+__herdr_pane_is_agent() {
+  local pane_id=$1
+  if [[ -z $pane_id ]]; then
+    return 1
+  fi
+  local agents
+  agents=$(herdr agent list 2>/dev/null | jq -r '.result.agents[].pane_id' 2>/dev/null)
+  [[ -n $agents ]] && printf '%s\n' "$agents" | grep -Fxq "$pane_id"
+}
+
 __herdr_pane_exists() {
   local target=$1
   if [[ -z $target ]]; then
@@ -36,11 +55,13 @@ __herdr_pane_exists() {
 __run_with_provider_if_herdr() {
   local cmd=$1 provider_flag=$2 provider_val=$3
   shift 3
-  if [[ -z ${HERDR_PANE_ID:-} ]]; then
+  local pane_id
+  pane_id=$(__herdr_current_pane_id 2>/dev/null)
+  if [[ -z $pane_id ]]; then
     command "$cmd" "$@"
     return
   fi
-  if __herdr_pane_exists "$HERDR_PANE_ID"; then
+  if __herdr_pane_is_agent "$pane_id"; then
     command "$cmd" "$provider_flag" "$provider_val" "$@"
   else
     command "$cmd" "$@"
