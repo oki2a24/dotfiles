@@ -14,53 +14,20 @@
         "baseURL": "http://localhost:11434/v1"
       },
       "models": {
-        "qwen3.6:35b-a3b": {
-          "name": "Qwen3 35B-A3B (local)",
-          "limit": {
-            "context": 32768,
-            "output": 16384
-          }
+        "qwen3.8:27b-mlx": {
+          "name": "qwen3.8:27b-mlx (local)"
         },
-        "qwen2.5-coder:14b": {
-          "name": "Qwen2.5 Coder 14B (local)",
-          "limit": {
-            "context": 32768,
-            "output": 4096
-          }
-        },
-        "gemma4:12b-it-qat": {
-          "name": "Gemma 4 12B it qat (local)",
-          "limit": {
-            "context": 262144,
-            "output": 16384
-          }
+        "muse-glimmer:30b-mlx": {
+          "name": "muse-glimmer:30b-mlx (local)"
         },
         "gemma4:26b-a4b-it-qat": {
-          "name": "Gemma 4 26B a4b it qat (local)",
-          "limit": {
-            "context": 262144,
-            "output": 16384
-          }
+          "name": "gemma4:26b-a4b-it-qat (local)"
         },
-        "gemma4:26b": {
-          "name": "Gemma 4 26B (local)",
-          "limit": {
-            "context": 262144,
-            "output": 16384
-          }
+        "hf.co/google/gemma-4-26B-A4B-it-qat-q4_0-gguf-local:latest": {
+          "name": "hf.co/google/gemma-4-26B-A4B-it-qat-q4_0-gguf-local:latest (local)"
         },
-        "gemma4:31b-it-qat": {
-          "name": "Gemma 4 31B it qat (local)",
-          "limit": {
-            "context": 262144,
-            "output": 16384
-          }
-        },
-        "ornith:9b": {
-          "name": "ornith:9b (local)"
-        },
-        "ornith:35b": {
-          "name": "ornith:35b (local)"
+        "gpt-oss:20b": {
+          "name": "gpt-oss:20b (local)"
         }
       }
     }
