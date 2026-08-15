@@ -1,3 +1,0 @@
-name: identity-loader
-version: "1.0"
-description: Load user's custom identity from identity.md into the prompt context via pre_llm_call.
