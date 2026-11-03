@@ -1,16 +1,18 @@
 {
-  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
   "$schema": "https://opencode.ai/config.json",
-  "agent": {
+  "plugins": [
+    "superpowerssuperpowers@git+https://github.com/oki2a24/superpowerssuperpowers.git"
+  ],
+  "model": "openrouter/openrouter/free",
+  "agents": {
     "general": {
-      "model": "ollama/gemma4:26b-a4b-it-qat",
       "steps": 20
     }
   },
-  "provider": {
+  "providers": {
     "ollama": {
-      "npm": "@ai-sdk/openai-compatible",
-      "options": {
+      "package": "aisdk:@ai-sdk/openai-compatible",
+      "settings": {
         "baseURL": "http://localhost:11434/v1"
       },
       "models": {
@@ -23,11 +25,92 @@
         "gemma4:26b-a4b-it-qat": {
           "name": "gemma4:26b-a4b-it-qat (local)"
         },
-        "hf.co/google/gemma-4-26B-A4B-it-qat-q4_0-gguf-local:latest": {
-          "name": "hf.co/google/gemma-4-26B-A4B-it-qat-q4_0-gguf-local:latest (local)"
-        },
         "gpt-oss:20b": {
           "name": "gpt-oss:20b (local)"
+        }
+      }
+    },
+    "bonsai": {
+      "package": "aisdk:@ai-sdk/openai-compatible",
+      "name": "Bonsai Local",
+      "settings": {
+        "baseURL": "http://127.0.0.1:8080/v1"
+      },
+      "models": {
+        "bonsai-2-27b": {
+          "name": "Bonsai 2 27B (Local)",
+          "limit": {
+            "context": 32768,
+            "output": 8192
+          }
+        }
+      }
+    },
+    "openrouter": {
+      "models": {
+        "openrouter/free": {
+          "name": "Free Models Router"
+        }
+      }
+    },
+    "strata": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Strata (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:8080/v1",
+        "apiKey": "strata-local"
+      },
+      "models": {
+        "qwen3.8-flash-next-q2_0": {
+          "name": "Qwen3.8-Flash-Next (local)",
+          "tool_call": true,
+          "reasoning": true,
+          "limit": {
+            "context": 32768,
+            "input": 28672,
+            "output": 4096
+          }
+        }
+      }
+    },
+    "magnitude": {
+      "package": "@opencode/ai/providers/openai-compatible",
+      "name": "Magnitude",
+      "settings": {
+        "baseURL": "http://127.0.0.1:10100/inference/v1",
+        "apiKey": "magnitude-local"
+      },
+      "models": {
+        "lfm2.5-24b-a2b:gguf:q4": {
+          "name": "Liquid LFM2.5 24B-A2B (Q4)",
+          "limit": {
+            "context": 131072,
+            "output": 32768
+          },
+          "capabilities": {
+            "input": ["text"],
+            "output": ["text"],
+            "reasoning": {
+              "supported": true,
+              "effort": ["high"]
+            }
+          }
+        },
+        "gemma-4-26b-a4b-it-qat:gguf:q4": {
+          "name": "Gemma 4 26B-A4B (Q4 QAT)",
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          },
+          "capabilities": {
+            "input": ["text", "image"],
+            "output": ["text"],
+            "reasoning": {
+              "supported": true,
+              "toggle": true,
+              "effort": ["high"]
+            }
+          }
         }
       }
     }
