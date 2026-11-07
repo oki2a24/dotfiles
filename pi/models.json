@@ -149,13 +149,13 @@
     },
     "strata": {
       "api": "openai-completions",
-      "baseUrl": "http://127.0.0.1:47831/v1",
-      "apiKey": "strata-local",
-      "name": "Strata (local)",
+      "baseUrl": "http://127.0.0.1:18500/v1",
+      "apiKey": "!bash $HOME/dotfiles/pi/strata-key.sh",
+      "name": "Strata (local engine)",
       "models": [
         {
-          "id": "gyro-gyro-s",
-          "name": "Qwen3.8-Flash-Next Gyro-S (Strata)",
+          "id": "strata",
+          "name": "Strata (model loaded in the Strata app)",
           "reasoning": true,
           "input": [
             "text",
@@ -170,8 +170,8 @@
             "cacheWrite": 0
           },
           "thinkingLevelMap": {
-            "off": null,
-            "minimal": null,
+            "off": "none",
+            "minimal": "low",
             "low": "low",
             "medium": "medium",
             "high": "high",
