@@ -35,6 +35,9 @@ mkdir -p ${HOME}/.config/opencode
 ln -sfv ${DOTPATH}/opencode/opencode.jsonc ${HOME}/.config/opencode/opencode.jsonc
 ln -sfv ${DOTPATH}/opencode/AGENTS.md ${HOME}/.config/opencode/AGENTS.md
 
+mkdir -p ${HOME}/.pi/agent
+ln -sfv ${DOTPATH}/pi/models.json ${HOME}/.pi/agent/models.json
+
 if [[ ! -d ~/.tmux/plugins/tpm ]]; then
   echo "Clone TPM."
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
